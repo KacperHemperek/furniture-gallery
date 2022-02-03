@@ -64,7 +64,6 @@ function showSlider() {
   );
 }
 
-
 function viewThumbnails(thumbnailList, id, photoList) {
   id -= 3;
   if (id < 0) {
@@ -92,7 +91,7 @@ const navbar = document.getElementById("nav-ul");
 hamburger.addEventListener("click", () => navbar.classList.toggle("show"));
 
 function loadGallery(id) {
-  var folder = `${id}/`;
+  var folder = `./${id}/`;
   //getting all jpg filenames
   $.ajax({
     url: folder,
@@ -106,7 +105,7 @@ function loadGallery(id) {
           if (val.match(/\.(jpe?g||png)$/)) {
             //getting values in array
             randPhotosArray.push(val);
-            $(`.${id}`).append(
+            $(`${id}`).append(
               '<div class="img"  id="' +
                 index +
                 '"><img src="' +
@@ -127,7 +126,7 @@ function loadGallery(id) {
 }
 
 window.addEventListener("load", () => {
-  const names = ["kitchen", "livingroom", "wardrobe", "bedroom"];
+  const names = ["kuchnie", "szafy", "biura", "lazienki"];
   names.forEach((name) => {
     loadGallery(name);
   });
